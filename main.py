@@ -22,11 +22,11 @@ class RandomHandler(tornado.web.RequestHandler):
 def make_app():
     return tornado.web.Application(
         [
-            (r"/random/([1-9]+),([1-9]+)", RandomHandler)
+            (r"/random/(\d+),(\d+)", RandomHandler)
         ]
     )
 
 if __name__ == '__main__':
     app = make_app()
-    app.listen(8080)
+    app.listen(7777)
     tornado.ioloop.IOLoop.current().start()
