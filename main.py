@@ -20,13 +20,14 @@ class RandomHandler(tornado.web.RequestHandler):
         self.write(json.dumps(json_dict))
 
 def make_app():
-    return tornado.web.Application(
+    app_ = tornado.web.Application(
         [
-            (r"/random/(\d+),(\d+)", RandomHandler)
+            (r"/random/(\d+)&(\d+)", RandomHandler)
         ]
     )
+    return app_
 
 if __name__ == '__main__':
     app = make_app()
-    app.listen(7777)
+    app.listen(7778)
     tornado.ioloop.IOLoop.current().start()
